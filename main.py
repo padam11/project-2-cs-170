@@ -69,5 +69,17 @@ class FeatureSelection:
         while current_features:
             candidate_score = -1
             candidate_feature = -1
+
+            #try removing each feature
+            for feature in current_features:
+                #create new feature set with this feature removed
+                new_features = current_features - {feature}
+                score = self.random_evaluation(new_features)
+
+                print(f"Using feature(s) {sorted(new_features)} accuracy is {score:.1f}%")
+                
+                if score > candidate_score:
+                    candidate_score = score
+                    candidate_feature = feature
         
 
