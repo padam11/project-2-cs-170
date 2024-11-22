@@ -83,5 +83,20 @@ class FeatureSelection:
                     candidate_feature = feature
             
             print(f"Feature set {sorted(current_features | {candidate_feature})} was best, accuracy is {candidate_score:.1f}%")
+
+            #remove feature which gives the best score when removed
+            current_features.remove(candidate_feature)
+            
+            #update best score if current set is better
+            if candidate_score > best_score:
+                best_score = candidate_score
+                best_features = current_features.copy()
+            elif current_features:
+                print("(Warning, Accuracy has decreased!)") #give warning
+                
+        print(f"\nFinished search!!") #finished search! let user know.
+        print(f"The best feature subset is {sorted(best_features)}, which has an accuracy of {best_score:.1f}%")
+        
+        return best_features, best_score
         
 
