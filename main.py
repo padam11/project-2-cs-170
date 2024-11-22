@@ -1,5 +1,6 @@
 import random
 from typing import Set, List, Tuple
+import itertools
 
 class FeatureSelection:
     def __init__(self, num_features: int):
@@ -99,43 +100,42 @@ class FeatureSelection:
         
         return best_features, best_score
     
-    def main():
-        print("welcome to feature selections algorithms")
+def main():
+    print("welcome to feature selections algorithms")
 
-       #Question whatst total amount of desired features but basically what im doing here is trouble shooting
-        try:
-            num_features = int(input("Give your total amount of features here in the prompt: "))
-            if num_features <= 0:
-                raise ValueError("Your features should be greater than 0 please try again")
-        except ValueError as e:
-            print(f"Invalid input: {e}")
-            return
-        #As yoy can see below I just prompted and initialized a feature selection
-        feature_selection = FeatureSelection(num_features)
+    #Question whatst total amount of desired features but basically what im doing here is trouble shooting
+    try:
+        num_features = int(input("Give your total amount of features here in the prompt: "))
+        if num_features <= 0:
+            raise ValueError("Your features should be greater than 0 please try again")
+    except ValueError as e:
+        print(f"Invalid input: {e}")
+        return
+    #As yoy can see below I just prompted and initialized a feature selection
+    feature_selection = FeatureSelection(num_features)
 
-        #Propts below
-        print("\nHi please, type the number of the algorithm you want to run and the number corresponding are below:")
-        print("1. Forward Selection")
-        print("2. Backward Elimination")
-        print("3. Exit")
+    #Propts below
+    print("\nHi please, type the number of the algorithm you want to run and the number corresponding are below:")
+    print("1. Forward Selection")
+    print("2. Backward Elimination")
+    print("3. Exit")
 
-        try:
-            choice = int(input("Your choice: "))
-        except ValueError:
-            print("Try again with number between 1 and 3.")
-            return
-        #Basically below is self explanatory code please contact me if you have any questions
-        if choice == 1:
-            print("\nForward selection is currently running please wait")
-            feature_selection.forward_selection()
-        elif choice == 2:
-            print("\nBackward Elimination is currently running please wait")
-            feature_selection.backward_elimination()
-        elif choice == 3:
-            print("You have successfully exited thanks")
-        else:
-            print("Please try a number between 1 and 3")
+    try:
+        choice = int(input("Your choice: "))
+    except ValueError:
+        print("Try again with number between 1 and 3.")
+        return
+    #Basically below is self explanatory code please contact me if you have any questions
+    if choice == 1:
+        print("\nForward selection is currently running please wait")
+        feature_selection.forward_selection()
+    elif choice == 2:
+        print("\nBackward Elimination is currently running please wait")
+        feature_selection.backward_elimination()
+    elif choice == 3:
+        print("You have successfully exited thanks")
+    else:
+        print("Please try a number between 1 and 3")
 
-    if __name__ == "__main__":
-        main()
-
+if __name__ == "__main__":
+    main()
