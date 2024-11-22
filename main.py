@@ -52,3 +52,14 @@ class FeatureSelection:
         
         return best_features, best_score
 
+    def backward_elimination(self) -> Tuple[Set[int], float]:
+        """
+        Implements backward elimination search algorithm.
+        Returns: (best_features, best_score)
+        """
+        #start with all features
+        current_features = set(range(1, self.num_features + 1))
+        best_score = self.random_evaluation(current_features)
+        best_features = current_features.copy()
+        
+        
