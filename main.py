@@ -110,5 +110,18 @@ class FeatureSelection:
         except ValueError as e:
             print(f"Invalid input: {e}")
             return
-        
+        #As yoy can see below I just prompted and initialized a feature selection
+        feature_selection = FeatureSelection(num_features)
+
+        #Propts below
+        print("\nHi please, type the number of the algorithm you want to run and the number corresponding are below:")
+        print("1. Forward Selection")
+        print("2. Backward Elimination")
+        print("3. Exit")
+
+        try:
+            choice = int(input("Your choice: "))
+        except ValueError:
+            print("Try again with number between 1 and 3.")
+            return
 
