@@ -98,5 +98,17 @@ class FeatureSelection:
         print(f"The best feature subset is {sorted(best_features)}, which has an accuracy of {best_score:.1f}%")
         
         return best_features, best_score
+    
+    def main():
+        print("welcome to feature selections algorithms")
+
+       #Question whatst total amount of desired features but basically what im doing here is trouble shooting
+        try:
+            num_features = int(input("Give your total amount of features here in the prompt: "))
+            if num_features <= 0:
+                raise ValueError("Your features should be greater than 0 please try again")
+        except ValueError as e:
+            print(f"Invalid input: {e}")
+            return
         
 
