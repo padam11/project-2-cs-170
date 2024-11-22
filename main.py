@@ -124,4 +124,18 @@ class FeatureSelection:
         except ValueError:
             print("Try again with number between 1 and 3.")
             return
+        #Basically below is self explanatory code please contact me if you have any questions
+        if choice == 1:
+            print("\nForward selection is currently running please wait")
+            feature_selection.forward_selection()
+        elif choice == 2:
+            print("\nBackward Elimination is currently running please wait")
+            feature_selection.backward_elimination()
+        elif choice == 3:
+            print("You have successfully exited thanks")
+        else:
+            print("Please try a number between 1 and 3")
+
+    if __name__ == "__main__":
+        main()
 
