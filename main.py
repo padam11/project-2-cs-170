@@ -65,6 +65,9 @@ class FeatureSelection:
         print(f"Using all features and \"random\" evaluation, I get an accuracy of {best_score:.1f}%")
         print("\nBeginning search.")
 
-        
+        #while current features exist
+        while current_features:
+            candidate_score = -1
+            candidate_feature = -1
         
 
