@@ -62,4 +62,9 @@ class FeatureSelection:
         best_score = self.random_evaluation(current_features)
         best_features = current_features.copy()
         
+        print(f"Using all features and \"random\" evaluation, I get an accuracy of {best_score:.1f}%")
+        print("\nBeginning search.")
+
         
+        
+
