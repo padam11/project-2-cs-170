@@ -81,5 +81,7 @@ class FeatureSelection:
                 if score > candidate_score:
                     candidate_score = score
                     candidate_feature = feature
+            
+            print(f"Feature set {sorted(current_features | {candidate_feature})} was best, accuracy is {candidate_score:.1f}%")
         
 
