@@ -76,16 +76,28 @@ class Validator:
             print(f"File not found at: {path}")
             print("Please check the path and try again.")
 
-    def main():
-        validator = Validator()
+def main():
+    validator = Validator()
         
-        # Here i am settijng some of the printing lines for prompt user
-        print("Welcome to the Nearest Neighbor Classifier testing program the prompt will display below:")
-        print("\nWe will test the classifier on two datasets with specific feature subsets and they are shown below:")
-        print("1. Small dataset using features {3, 5, 7}")
-        print("2. Large dataset using features {1, 15, 27}")
+    # Here i am settijng some of the printing lines for prompt user
+    print("Welcome to the Nearest Neighbor Classifier testing program the prompt will display below:")
+    print("\nWe will test the classifier on two datasets with specific feature subsets and they are shown below:")
+    print("1. Small dataset using features {3, 5, 7}")
+    print("2. Large dataset using features {1, 15, 27}")
         
-         
+    # Test on small dataset and it will load the feature as you can see 3 5 7 are out features,
+    print("\nTesting on small dataset now downloading and test...")
+    small_path = get_dataset_path("small-test-dataset.txt")
+    try:
+        small_data = validator.load_data(small_path)
+        # Load features correctly
+        small_features = {3, 5, 7}
+        accuracy, time_taken = validator.evaluate_feature_subset(small_data, small_features)
+        # Analyse
+        print(f"Small dataset accuracy with features {small_features}: {accuracy:.2f}%")
+        print(f"Time taken: {time_taken:.2f} seconds\n")
+    except Exception as e:
+        print(f"Error processing small dataset: {str(e)}")
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
