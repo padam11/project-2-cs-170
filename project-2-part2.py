@@ -75,3 +75,17 @@ class Validator:
                 return path
             print(f"File not found at: {path}")
             print("Please check the path and try again.")
+
+    def main():
+        validator = Validator()
+        
+        # Here i am settijng some of the printing lines for prompt user
+        print("Welcome to the Nearest Neighbor Classifier testing program the prompt will display below:")
+        print("\nWe will test the classifier on two datasets with specific feature subsets and they are shown below:")
+        print("1. Small dataset using features {3, 5, 7}")
+        print("2. Large dataset using features {1, 15, 27}")
+        
+         
+
+    if __name__ == "__main__":
+        main()
