@@ -98,6 +98,20 @@ def main():
         print(f"Time taken: {time_taken:.2f} seconds\n")
     except Exception as e:
         print(f"Error processing small dataset: {str(e)}")
+    # Test on large dataset below with getting the path
+    print("\nTesting on large dataset now and downloading and test...")
+    large_path = get_dataset_path("large-test-dataset.txt")
+    try:
+        large_data = validator.load_data(large_path)
+        # Load features for large dataset
+        large_features = {1, 15, 27}
+        # Accuracy and metrics
+        accuracy, time_taken = validator.evaluate_feature_subset(large_data, large_features)
+        # Analyse
+        print(f"Large dataset accuracy with features {large_features}: {accuracy:.2f}%")
+        print(f"Time taken: {time_taken:.2f} seconds")
+    except Exception as e:
+        print(f"Error processing large dataset: {str(e)}")
 
 if __name__ == "__main__":
     main()
