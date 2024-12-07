@@ -3,6 +3,13 @@ from typing import List, Set, Tuple
 from dataclasses import dataclass
 import time
 
+#DatasetID: 211
+#Small Dataset Results:
+# - Forward: Feature Subset - {3, 5}, Acc: 0.92
+# - Backward: Feature Subset - {2, 4, 5, 7, 10} Acc: 0.82
+#Large Dataset Results:
+# - Forward: Feature Subset - {1, 15, 27] Acc: .95
+
 @dataclass
 class Instance:
     id: int
@@ -18,7 +25,7 @@ class NearestNeighborClassifier:
     
     def test(self, instance: Instance) -> int:
         if not self.training_data:
-            raise ValueError("Classifier must be trained before testing") 
+            raise ValueError("Classifier must be trained before testing")
         #compute euclidean distance to find closest training instance to given test instance
         min_distance = float('inf')
         predicted_label = None
