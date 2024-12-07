@@ -18,7 +18,7 @@ class NearestNeighborClassifier:
     
     def test(self, instance: Instance) -> int:
         if not self.training_data:
-            raise ValueError("Classifier must be trained before testing")
+            raise ValueError("Classifier must be trained before testing") 
         #compute euclidean distance to find closest training instance to given test instance
         min_distance = float('inf')
         predicted_label = None
